@@ -20,569 +20,318 @@
 </head>
 
 <body>
-    <h1 style="color: green;">
-        GeeksforGeeks</h1>
-
-
-    <p>
-        This is a simple tutorial for
-        creating a PWA application.
-    </p>
-    <script src="index.js"></script>
-
-    <hr>
-    <div class="k-content__head	k-grid__item">
-        <div class="k-content__head-main">
-            <h3 class="k-content__head-title">REC Conductores</h3>
-            <div class="k-content__head-breadcrumbs">
-                <a href="#" class="k-content__head-breadcrumb-home"><i class="flaticon2-shelter"></i></a>
-                <span class="k-content__head-breadcrumb-separator"></span>
-                <a href="#" class="k-content__head-breadcrumb-link">Sistema Administrador Crio Gas.</a>
-                <span class="k-content__head-breadcrumb-separator"></span>
-                <a href="#" class="k-content__head-breadcrumb-link"></a>
-
-                <!-- <span class="k-content__head-breadcrumb-link k-content__head-breadcrumb-link--active">Active link</span> -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Criogas</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">REC Conductores</a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </div>
+    </nav>
     <!--Termina: Encabezado de Pagina -->
+
     <!--Comienza: contenido de Pagina -->
-    <div class="k-portlet">
-        <div class="k-portlet__head">
-            <div class="k-portlet__head-label">
-                <!-- <h3 class="k-portlet__head-title">REC/Conductores</h3> -->
-            </div>
-        </div>
-        <div class="k-portlet__body">
-            <div class="tab-content">
-                <div class="tab-pane fade active show" id="k_tabs_8_1" role="tabpanel">
-                    <!--Comienza: contenido del primer tab -->
-                    <form class="k-form k-form--label-right">
-                        <ajaxToolkit:ModalPopupExtender ID="ModalCambio" runat="server" CancelControlID="Button1" TargetControlID="HiddenField1" PopupControlID="Panel1" BackgroundCssClass="modalBackground1"></ajaxToolkit:ModalPopupExtender>
-                        <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:Conexion %>' SelectCommand="SELECT * FROM [View_Clientes]"></asp:SqlDataSource>
-                        <asp:SqlDataSource runat="server" ID="SqlDataSource3" ConnectionString='<%$ ConnectionStrings:Conexion %>' SelectCommand="SELECT [Conductor_Nombre], [Conductor_Apellidos], [Conductor_Rut] FROM [Conductores]"></asp:SqlDataSource>
-
-
-                        <div class="row">
-                            <div class="col">
-                                <asp:Label runat="server">Total de Cilindros</asp:Label>
-                                <asp:TextBox ID="TextBox1" CssClass="form-control" disabled="True" Text="0" runat="server"></asp:TextBox>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col">
-                                <p>Clientes</p>
-                                <dx:ASPxComboBox ID="ASPxComboBox3" Width="100%" runat="server" DataSourceID="SqlDataSource1" Theme="MaterialCompact" EnableTheming="True">
-                                    <Columns>
-                                        <dx:ListBoxColumn FieldName="Cliente_Descripcion"></dx:ListBoxColumn>
-                                        <dx:ListBoxColumn FieldName="ClienteId"></dx:ListBoxColumn>
-                                        <dx:ListBoxColumn FieldName="Cliente_VATId"></dx:ListBoxColumn>
-
-                                    </Columns>
-                                </dx:ASPxComboBox>
-                            </div>
-                            <div class="col">
-                                <p>Conductores</p>
-                                <dx:ASPxComboBox ID="ASPxComboBox1" Width="100%" runat="server" DataSourceID="SqlDataSource3" Theme="MaterialCompact" EnableTheming="True">
-                                    <Columns>
-                                        <dx:ListBoxColumn FieldName="Conductor_Nombre"></dx:ListBoxColumn>
-                                        <dx:ListBoxColumn FieldName="Conductor_Apellidos"></dx:ListBoxColumn>
-                                    </Columns>
-                                </dx:ASPxComboBox>
-                            </div>
-                        </div>
-                        <hr />
-                        <div class="row">
-                            <div class="col">
-                                <div class="row">
-                                    <div class="col">
-                                        <label>Capacidad</label>
-                                        <dx:ASPxTextBox ID="ASPxTextBox1" runat="server" Width="100%" Theme="MaterialCompact"></dx:ASPxTextBox>
-                                    </div>
-                                    <div class="col">
-                                        <label>Unidad de Medida</label>
-                                        <dx:ASPxComboBox ID="ASPxComboBox5" Width="100%" runat="server" Theme="MaterialCompact" EnableTheming="True">
-                                            <Items>
-                                                <dx:ListEditItem Text=""></dx:ListEditItem>
-                                                <dx:ListEditItem Text="KG"></dx:ListEditItem>
-                                                <dx:ListEditItem Text="M3"></dx:ListEditItem>
-                                                <dx:ListEditItem Text="Unidad"></dx:ListEditItem>
-                                            </Items>
-                                        </dx:ASPxComboBox>
-                                    </div>
-                                    <hr />
-                                </div>
-
-                                <div class="row">
-                                    <div class="col">
-                                        <label>¿Con Tapa?</label>
-                                        <dx:ASPxRadioButtonList ID="ASPxRadioButtonList1" Width="100%" runat="server" Theme="MaterialCompact">
-                                            <Items>
-                                                <dx:ListEditItem Text="Con tapa" Value="Con tapa"></dx:ListEditItem>
-                                                <dx:ListEditItem Text="Sin tapa" Value="Sin tapa"></dx:ListEditItem>
-                                            </Items>
-                                        </dx:ASPxRadioButtonList>
-                                    </div>
-                                    <div class="col">
-                                        <p>Propiedad</p>
-                                        <dx:ASPxComboBox ID="ASPxComboBox4" Width="100%" runat="server" Theme="MaterialCompact" EnableTheming="True">
-                                            <Items>
-                                                <dx:ListEditItem Text=""></dx:ListEditItem>
-                                                <dx:ListEditItem Text="Particular"></dx:ListEditItem>
-                                                <dx:ListEditItem Text="Recambio"></dx:ListEditItem>
-                                                <dx:ListEditItem Text="Criogas"></dx:ListEditItem>
-                                            </Items>
-                                        </dx:ASPxComboBox>
-                                    </div>
-                                </div>
-                                <hr />
-                                <div class="row">
-                                    <div class="col">
-                                        <dx:ASPxComboBox ID="ASPxComboBox2" runat="server" DataSourceID="SqlDataSource2" Theme="MaterialCompact">
-                                            <Columns>
-                                                <dx:ListBoxColumn FieldName="GasTipo_Descripcion" Caption="Tipo de gas"></dx:ListBoxColumn>
-                                            </Columns>
-                                        </dx:ASPxComboBox>
-                                    </div>
-                                    <div class="col">
-                                        <asp:Button ID="Button3" CssClass="btn btn-warning" Width="100%" runat="server" Text="-" OnClick="Oxigeno_Resta" />
-                                    </div>
-                                    <div class="col">
-                                        <asp:TextBox ID="TxtCantidad" CssClass="form-control" Text="0" runat="server"></asp:TextBox>
-                                    </div>
-                                    <div class="col">
-                                        <asp:Button ID="Button6" CssClass="btn btn-primary" Width="100%" runat="server" Text="+" OnClick="Oxigeno_Suma" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="row">
-                                    <div class="col">
-                                        <asp:TextBox ID="Oxigeno" CssClass="form-control" disabled="True" Text="0" runat="server"></asp:TextBox>
-                                    </div>
-                                    <div class="col">
-                                        <asp:Label runat="server">Oxigeno</asp:Label>
-                                    </div>
-                                    <div class="col">
-                                        <asp:ImageButton ID="Eliminar" ToolTip="Este boton sirve para eliminar este registro" CssClass="btn btn-danger btn-sm waves-effect" runat="server" Width="45px" ImageUrl="~/Content2/assets/images/delete.png" />
-                                    </div>
-                                    <div class="col">
-                                        <asp:ImageButton ID="Editar" ToolTip="Este boton sirve para editar este registro" CssClass="btn btn-warning btn-sm waves-effect" runat="server" Width="45px" ImageUrl="~/Content2/assets/images/edit.png" />
-                                    </div>
-                                    <div class="col">
-                                        <label class="k-checkbox">
-                                            <input type="checkbox" name="account_communication[]" value="Tapa" checked="">
-                                            Con tapa
-                                                            <span></span>
-                                        </label>
-
-                                    </div>
-                                    <div class="col">
-                                        <asp:TextBox ID="TextBox13" CssClass="form-control" disabled="True" Text="0" runat="server"></asp:TextBox>
-                                        <p>Capacidad</p>
-                                    </div>
-                                    <div class="col">
-                                        <asp:TextBox ID="TextBox16" CssClass="form-control" disabled="True" Text="0" runat="server"></asp:TextBox>
-                                        <p>PH</p>
-                                    </div>
-                                </div>
-                                <br />
-                                <div class="row">
-                                    <div class="col">
-                                        <asp:TextBox ID="TextBox3" CssClass="form-control" disabled="True" Text="0" runat="server"></asp:TextBox>
-                                    </div>
-                                    <div class="col">
-                                        <asp:Label runat="server">Trigamix</asp:Label>
-                                    </div>
-                                    <div class="col">
-                                        <asp:Button ID="Button9" CssClass="btn btn-danger" Width="100%" runat="server" Text="Eliminar" OnClick="Crear_Rec" />
-                                    </div>
-                                    <div class="col">
-                                        <asp:Button ID="Button10" CssClass="btn btn-warning" Width="100%" runat="server" Text="Editar" OnClick="Crear_Rec" />
-                                    </div>
-                                </div>
-                                <br />
-
-                                <div class="row">
-                                    <div class="col">
-                                        <asp:TextBox ID="TextBox9" CssClass="form-control" disabled="True" Text="0" runat="server"></asp:TextBox>
-                                    </div>
-                                    <div class="col">
-                                        <asp:Label runat="server">Argon</asp:Label>
-                                    </div>
-                                    <div class="col">
-                                        <asp:Button ID="Button13" CssClass="btn btn-danger" Width="100%" runat="server" Text="Eliminar" OnClick="Crear_Rec" />
-                                    </div>
-                                    <div class="col">
-                                        <asp:Button ID="Button18" CssClass="btn btn-warning" Width="100%" runat="server" Text="Editar" OnClick="Crear_Rec" />
-                                    </div>
-                                </div>
-                                <br />
-
-                                <div class="row">
-                                    <div class="col">
-                                        <asp:TextBox ID="TextBox10" CssClass="form-control" disabled="True" Text="0" runat="server"></asp:TextBox>
-                                    </div>
-                                    <div class="col">
-                                        <asp:Label runat="server">Acetileno</asp:Label>
-                                    </div>
-                                    <div class="col">
-                                        <asp:Button ID="Button19" CssClass="btn btn-danger" Width="100%" runat="server" Text="Eliminar" OnClick="Crear_Rec" />
-                                    </div>
-                                    <div class="col">
-                                        <asp:Button ID="Button20" CssClass="btn btn-warning" Width="100%" runat="server" Text="Editar" OnClick="Crear_Rec" />
-                                    </div>
-                                </div>
-                                <br />
-
-                                <div class="row">
-                                    <div class="col">
-                                        <asp:TextBox ID="TextBox11" CssClass="form-control" disabled="True" Text="0" runat="server"></asp:TextBox>
-                                    </div>
-                                    <div class="col">
-                                        <asp:Label runat="server">Dioxido de Carbono</asp:Label>
-                                    </div>
-                                    <div class="col">
-                                        <asp:Button ID="Button21" CssClass="btn btn-danger" Width="100%" runat="server" Text="Eliminar" OnClick="Crear_Rec" />
-                                    </div>
-                                    <div class="col">
-                                        <asp:Button ID="Button22" CssClass="btn btn-warning" Width="100%" runat="server" Text="Editar" OnClick="Crear_Rec" />
-                                    </div>
-                                </div>
-                                <br />
-
-                                <div class="row">
-                                    <div class="col">
-                                        <asp:TextBox ID="TextBox12" CssClass="form-control" disabled="True" Text="0" runat="server"></asp:TextBox>
-                                    </div>
-                                    <div class="col">
-                                        <asp:Label runat="server">Nitrogeno</asp:Label>
-                                    </div>
-                                    <div class="col">
-                                        <asp:Button ID="Button23" CssClass="btn btn-danger" Width="100%" runat="server" Text="Eliminar" OnClick="Crear_Rec" />
-                                    </div>
-                                    <div class="col">
-                                        <asp:Button ID="Button24" CssClass="btn btn-warning" Width="100%" runat="server" Text="Editar" OnClick="Crear_Rec" />
-                                    </div>
-                                </div>
-                                <br />
-
-                                <div class="row">
-                                    <div class="col">
-                                        <asp:TextBox ID="TextBox14" CssClass="form-control" disabled="True" Text="0" runat="server"></asp:TextBox>
-                                    </div>
-                                    <div class="col">
-                                        <asp:Label runat="server">Aire</asp:Label>
-                                    </div>
-                                    <div class="col">
-                                        <asp:Button ID="Button27" CssClass="btn btn-danger" Width="100%" runat="server" Text="Eliminar" OnClick="Crear_Rec" />
-                                    </div>
-                                    <div class="col">
-                                        <asp:Button ID="Button28" CssClass="btn btn-warning" Width="100%" runat="server" Text="Editar" OnClick="Crear_Rec" />
-                                    </div>
-                                </div>
-                                <br />
-
-                                <div class="row">
-                                    <div class="col">
-                                        <asp:TextBox ID="TextBox15" CssClass="form-control" disabled="True" Text="0" runat="server"></asp:TextBox>
-                                    </div>
-                                    <div class="col">
-                                        <asp:Label runat="server">Mazcla especial</asp:Label>
-                                    </div>
-                                    <div class="col">
-                                        <asp:Button ID="Button29" CssClass="btn btn-danger" Width="100%" runat="server" Text="Eliminar" OnClick="Crear_Rec" />
-                                    </div>
-                                    <div class="col">
-                                        <asp:Button ID="Button30" CssClass="btn btn-warning" Width="100%" runat="server" Text="Editar" OnClick="Crear_Rec" />
-                                    </div>
-                                </div>
-
-                                    <table class="table">
-                                        <thead class="thead-light">
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Tipo Gas</th>
-                                                <th>Cap.</th>
-                                                <th>PH</th>
-                                                <th>Cant.</th>
-                                                <th>Tapa</th>
-                                                <th>Opciones</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Trigamix</td>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                <td>
-                                                    <label class="k-checkbox">
-                                                        <input type="checkbox" name="account_communication[]" value="Tapa" checked="">
-                                                        Tapa
-                                                            <span></span>
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    <asp:ImageButton ID="ImageButton1" ToolTip="Este boton sirve para eliminar este registro" CssClass="btn btn-danger btn-sm waves-effect" runat="server" Width="45px" ImageUrl="~/Content2/assets/images/delete.png" />
-                                                    <asp:ImageButton ID="ImageButton2" ToolTip="Este boton sirve para editar este registro" CssClass="btn btn-warning btn-sm waves-effect" runat="server" Width="45px" ImageUrl="~/Content2/assets/images/edit.png" />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Argon</td>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                <td>
-                                                    <label class="k-checkbox">
-                                                        <input type="checkbox" name="account_communication[]" value="Tapa" checked="">
-                                                        Tapa
-                                                            <span></span>
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    <asp:ImageButton ID="ImageButton3" ToolTip="Este boton sirve para eliminar este registro" CssClass="btn btn-danger btn-sm waves-effect" runat="server" Width="45px" ImageUrl="~/Content2/assets/images/delete.png" />
-                                                    <asp:ImageButton ID="ImageButton4" ToolTip="Este boton sirve para editar este registro" CssClass="btn btn-warning btn-sm waves-effect" runat="server" Width="45px" ImageUrl="~/Content2/assets/images/edit.png" />
-                                                </td>
-                                            </tr>
-
-
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>Acetileno</td>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                <td>
-                                                    <label class="k-checkbox">
-                                                        <input type="checkbox" name="account_communication[]" value="Tapa" checked="">
-                                                        Tapa
-                                                            <span></span>
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    <asp:ImageButton ID="ImageButton7" ToolTip="Este boton sirve para eliminar este registro" CssClass="btn btn-danger btn-sm waves-effect" runat="server" Width="45px" ImageUrl="~/Content2/assets/images/delete.png" />
-                                                    <asp:ImageButton ID="ImageButton8" ToolTip="Este boton sirve para editar este registro" CssClass="btn btn-warning btn-sm waves-effect" runat="server" Width="45px" ImageUrl="~/Content2/assets/images/edit.png" />
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <th scope="row">4</th>
-                                                <td>CO2</td>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                <td>
-                                                    <label class="k-checkbox">
-                                                        <input type="checkbox" name="account_communication[]" value="Tapa" checked="">
-                                                        Tapa
-                                                            <span></span>
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    <asp:ImageButton ID="ImageButton9" ToolTip="Este boton sirve para eliminar este registro" CssClass="btn btn-danger btn-sm waves-effect" runat="server" Width="45px" ImageUrl="~/Content2/assets/images/delete.png" />
-                                                    <asp:ImageButton ID="ImageButton10" ToolTip="Este boton sirve para editar este registro" CssClass="btn btn-warning btn-sm waves-effect" runat="server" Width="45px" ImageUrl="~/Content2/assets/images/edit.png" />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                            <tr>
-                                                <th scope="row">5</th>
-                                                <td>Nitrogeno</td>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                <td>
-                                                    <label class="k-checkbox">
-                                                        <input type="checkbox" name="account_communication[]" value="Tapa" checked="">
-                                                        Tapa
-                                                            <span></span>
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    <asp:ImageButton ID="ImageButton11" ToolTip="Este boton sirve para eliminar este registro" CssClass="btn btn-danger btn-sm waves-effect" runat="server" Width="45px" ImageUrl="~/Content2/assets/images/delete.png" />
-                                                    <asp:ImageButton ID="ImageButton12" ToolTip="Este boton sirve para editar este registro" CssClass="btn btn-warning btn-sm waves-effect" runat="server" Width="45px" ImageUrl="~/Content2/assets/images/edit.png" />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                            <tr>
-                                                <th scope="row">6</th>
-                                                <td>Aire</td>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                <td>
-                                                    <label class="k-checkbox">
-                                                        <input type="checkbox" name="account_communication[]" value="Tapa" checked="">
-                                                        Tapa
-                                                            <span></span>
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    <asp:ImageButton ID="ImageButton13" ToolTip="Este boton sirve para eliminar este registro" CssClass="btn btn-danger btn-sm waves-effect" runat="server" Width="45px" ImageUrl="~/Content2/assets/images/delete.png" />
-                                                    <asp:ImageButton ID="ImageButton14" ToolTip="Este boton sirve para editar este registro" CssClass="btn btn-warning btn-sm waves-effect" runat="server" Width="45px" ImageUrl="~/Content2/assets/images/edit.png" />
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <th scope="row">7</th>
-                                                <td>Mezcla</td>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                <td>
-                                                    <label class="k-checkbox">
-                                                        <input type="checkbox" name="account_communication[]" value="Tapa" checked="">
-                                                        Tapa
-                                                            <span></span>
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    <asp:ImageButton ID="ImageButton5" ToolTip="Este boton sirve para eliminar este registro" CssClass="btn btn-danger btn-sm waves-effect" runat="server" Width="45px" ImageUrl="~/Content2/assets/images/delete.png" />
-                                                    <asp:ImageButton ID="ImageButton6" ToolTip="Este boton sirve para editar este registro" CssClass="btn btn-warning btn-sm waves-effect" runat="server" Width="45px" ImageUrl="~/Content2/assets/images/edit.png" />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">8</th>
-                                                <td>Oxigeno</td>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                <td>
-                                                    <label class="k-checkbox">
-                                                        <input type="checkbox" name="account_communication[]" value="Tapa" checked="">
-                                                        Tapa
-                                                            <span></span>
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    <asp:ImageButton ID="ImageButton15" ToolTip="Este boton sirve para eliminar este registro" CssClass="btn btn-danger btn-sm waves-effect" runat="server" Width="45px" ImageUrl="~/Content2/assets/images/delete.png" />
-                                                    <asp:ImageButton ID="ImageButton16" ToolTip="Este boton sirve para editar este registro" CssClass="btn btn-warning btn-sm waves-effect" runat="server" Width="45px" ImageUrl="~/Content2/assets/images/edit.png" />
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-
-                        <asp:SqlDataSource runat="server" ID="SqlDataSource2" ConnectionString='<%$ ConnectionStrings:Conexion %>' SelectCommand="SELECT * FROM [View_GasTipo_GridView]"></asp:SqlDataSource>
-                        <hr />
-
-                        <div class="row">
-                            <div class="col">
-                                <asp:Button ID="Button11" CssClass="btn btn-danger" Width="100%" runat="server" Text="Eliminar" />
-                            </div>
-
-                            <div class="col">
-                                <asp:Button ID="Button12" CssClass="btn btn-success" Width="100%" runat="server" Text="Confirmar" OnClick="Crear_Rec" />
-                            </div>
-                        </div>
+        <div class="content">
+            <!--Comienza: contenido del primer tab -->
+            <div class="row">
+                <div class="col">
+                    <Label runat="server">Total de Cilindros</Label>
+                    <input class="form-control" type="text" placeholder="Default input"
+                        aria-label="default input example">
                 </div>
             </div>
 
-        </div>
-        </form>
-
-                        <dx:ASPxGridView ID="Lista" runat="server" Theme="MaterialCompact" AutoGenerateColumns="False" EnableTheming="True">
-                        <EditFormLayoutProperties ColCount="2" ColumnCount="2">
-                            <Items>
-                                <dx:GridViewColumnLayoutItem ColumnName="Capacidad" ColSpan="1"></dx:GridViewColumnLayoutItem>
-                                <dx:GridViewColumnLayoutItem ColumnName="Tapa" ColSpan="1"></dx:GridViewColumnLayoutItem>
-                                <dx:GridViewColumnLayoutItem ColumnName="PH" ColSpan="1"></dx:GridViewColumnLayoutItem>
-                                <dx:EditModeCommandLayoutItem ColSpan="2" ColumnSpan="2" HorizontalAlign="Right"></dx:EditModeCommandLayoutItem>
-                            </Items>
-                        </EditFormLayoutProperties>
-                        <Columns>
-                            <dx:GridViewCommandColumn VisibleIndex="3" Name="Cantidad" Caption="Cantidad" ShowClearFilterButton="True"></dx:GridViewCommandColumn>
-                            <dx:GridViewDataTextColumn Name="Capacidad" Caption="Capacidad" VisibleIndex="0"></dx:GridViewDataTextColumn>
-                            <dx:GridViewDataCheckColumn Name="Tapa" Caption="Tapa" VisibleIndex="1"></dx:GridViewDataCheckColumn>
-                            <dx:GridViewDataTextColumn Name="PH" Caption="PH" VisibleIndex="2"></dx:GridViewDataTextColumn>
-                            <dx:GridViewCommandColumn VisibleIndex="4" Name="Command" Caption="Opciones" Width="180px"></dx:GridViewCommandColumn>
-                        </Columns>
-                    </dx:ASPxGridView>
-
-
-        <asp:Panel ID="Panel1" CssClass="modal-dialog modal-xl" TabIndex="-1" runat="server" aria-hidden="true" Style="display: none; width: 450px">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="myModalLabel5">
-                            <asp:Label ID="Label3" runat="server">Realizar un cambio</asp:Label>
-                        </h5>
+            <div class="row">
+                <div class="col">
+                    <p>Clientes</p>
+                    <div class="form-floating">
+                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                            <option selected>Jose Hernandez</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                        <label for="floatingSelect">Seleccionar un cliente</label>
                     </div>
-                    <div class="modal-body">
-                        <asp:HiddenField ID="HiddenField1" runat="server" />
-                        <div class="row">
-                            <p>Oxigeno</p>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <asp:Button ID="Button1" CssClass="btn btn-warning" Width="100%" runat="server" Text="-" />
-                            </div>
-                            <div class="col">
-                                <asp:TextBox ID="TextBox2" CssClass="form-control" runat="server"></asp:TextBox>
-                            </div>
-                            <div class="col">
-                                <asp:TextBox ID="TextBox6" CssClass="form-control" runat="server"></asp:TextBox>
-                            </div>
-                            <div class="col">
-                                <asp:Button ID="Button2" CssClass="btn btn-primary" Width="100%" runat="server" Text="+" />
-                            </div>
-                        </div>
 
-                        <hr />
-
-                        <div class="row">
-                            <p>Argon</p>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <asp:Button ID="Button14" CssClass="btn btn-warning" Width="100%" runat="server" Text="-" />
-                            </div>
-                            <div class="col">
-                                <asp:TextBox ID="TextBox4" CssClass="form-control" runat="server"></asp:TextBox>
-                            </div>
-                            <div class="col">
-                                <asp:TextBox ID="TextBox7" CssClass="form-control" runat="server"></asp:TextBox>
-                            </div>
-                            <div class="col">
-                                <asp:Button ID="Button15" CssClass="btn btn-primary" Width="100%" runat="server" Text="+" />
-                            </div>
-                        </div>
-
-                        <hr />
-
-                        <div class="row">
-                            <p>Mezcla</p>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <asp:Button ID="Button16" CssClass="btn btn-warning" Width="100%" runat="server" Text="-" />
-                            </div>
-                            <div class="col">
-                                <asp:TextBox ID="TextBox5" CssClass="form-control" runat="server"></asp:TextBox>
-                            </div>
-                            <div class="col">
-                                <asp:TextBox ID="TextBox8" CssClass="form-control" runat="server"></asp:TextBox>
-                            </div>
-                            <div class="col">
-                                <asp:Button ID="Button17" CssClass="btn btn-primary" Width="100%" runat="server" Text="+" />
-                            </div>
-                        </div>
-
-                        <hr />
-                    </div>
-                    <div class="modal-footer">
-                        <asp:Button ID="Button4" CssClass="btn btn-success" runat="server" Text="Cambiar" />
-                        <asp:Button ID="Button5" CssClass="btn btn-warning" runat="server" Text="Cancelar" />
+                </div>
+                <div class="col">
+                    <p>Conductores</p>
+                    <div class="form-floating">
+                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                            <option selected>Jose Hernandez</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                        <label for="floatingSelect">Seleccionar un Conductor</label>
                     </div>
                 </div>
             </div>
-        </asp:Panel>
+            <hr />
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-floating">
+                                <input class="form-control" type="text" placeholder="Default input"
+                                    aria-label="default input example">
+                                <label for="floatingSelect">Capacidad</label>
+                            </div>
+
+
+                        </div>
+                        <div class="col">
+                            <div class="form-floating">
+                                <select class="form-select" id="floatingSelect"
+                                    aria-label="Floating label select example">
+                                    <option selected>Seleccionar Unidad</option>
+                                    <option value="1">M3</option>
+                                    <option value="2">KG</option>
+                                    <option value="3">Unidad</option>
+                                </select>
+                                <label for="floatingSelect">Unidad de Medida</label>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <hr>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-floating">
+                                <select class="form-select" id="floatingSelect"
+                                    aria-label="Floating label select example">
+                                    <option selected>Seleccione una opcion</option>
+                                    <option value="1">Con tapa</option>
+                                    <option value="2">Sin tapa</option>
+                                </select>
+                                <label for="floatingSelect">¿Con Tapa?</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-floating">
+                                <select class="form-select" id="floatingSelect"
+                                    aria-label="Floating label select example">
+                                    <option selected>Seleccione una opcion </option>
+                                    <option value="1">Criogas</option>
+                                    <option value="2">Particular</option>
+                                </select>
+                                <label for="floatingSelect">Propiedad</label>
+                            </div>
+
+                            <dx:ASPxComboBox ID="ASPxComboBox4" Width="100%" runat="server" Theme="MaterialCompact"
+                                EnableTheming="True">
+                                <Items>
+                                    <dx:ListEditItem Text=""></dx:ListEditItem>
+                                    <dx:ListEditItem Text="Particular"></dx:ListEditItem>
+                                    <dx:ListEditItem Text="Recambio"></dx:ListEditItem>
+                                    <dx:ListEditItem Text="Criogas"></dx:ListEditItem>
+                                </Items>
+                            </dx:ASPxComboBox>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col">
+                            <dx:ASPxComboBox ID="ASPxComboBox2" runat="server" DataSourceID="SqlDataSource2"
+                                Theme="MaterialCompact">
+                                <Columns>
+                                    <dx:ListBoxColumn FieldName="GasTipo_Descripcion" Caption="Tipo de gas">
+                                    </dx:ListBoxColumn>
+                                </Columns>
+                            </dx:ASPxComboBox>
+
+                            <div class="form-floating">
+                                <select class="form-select" id="floatingSelect"
+                                    aria-label="Floating label select example">
+                                    <option selected>Open this select menu</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                                <label for="floatingSelect">Works with selects</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <Button ID="Button3" Class="btn btn-warning w-100"> - </Button>
+                        </div>
+                        <div class="col">
+                            <input class="form-control" type="text" placeholder="Default input"
+                                aria-label="default input example">
+
+                        </div>
+                        <div class="col">
+                            <Button ID="Button6" Class="btn btn-primary w-100">+</Button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <table class="table">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>#</th>
+                                <th>Tipo Gas</th>
+                                <th>Cap.</th>
+                                <th>PH</th>
+                                <th>Cant.</th>
+                                <th>Tapa</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Trigamix</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>
+                                    <label class="k-checkbox">
+                                        <input type="checkbox" name="account_communication[]" value="Tapa" checked="">
+                                        Tapa
+                                        <span></span>
+                                    </label>
+                                </td>
+
+                            </tr>
+                            <tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Argon</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>
+                                    <label class="k-checkbox">
+                                        <input type="checkbox" name="account_communication[]" value="Tapa" checked="">
+                                        Tapa
+                                        <span></span>
+                                    </label>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Acetileno</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>
+                                    <label class="k-checkbox">
+                                        <input type="checkbox" name="account_communication[]" value="Tapa" checked="">
+                                        Tapa
+                                        <span></span>
+                                    </label>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                <th scope="row">4</th>
+                                <td>CO2</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>
+                                    <label class="k-checkbox">
+                                        <input type="checkbox" name="account_communication[]" value="Tapa" checked="">
+                                        Tapa
+                                        <span></span>
+                                    </label>
+                                </td>
+
+                            </tr>
+                            <tr>
+                            <tr>
+                                <th scope="row">5</th>
+                                <td>Nitrogeno</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>
+                                    <label class="k-checkbox">
+                                        <input type="checkbox" name="account_communication[]" value="Tapa" checked="">
+                                        Tapa
+                                        <span></span>
+                                    </label>
+                                </td>
+
+                            </tr>
+                            <tr>
+                            <tr>
+                                <th scope="row">6</th>
+                                <td>Aire</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>
+                                    <label class="k-checkbox">
+                                        <input type="checkbox" name="account_communication[]" value="Tapa" checked="">
+                                        Tapa
+                                        <span></span>
+                                    </label>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">7</th>
+                                <td>Mezcla</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>
+                                    <label class="k-checkbox">
+                                        <input type="checkbox" name="account_communication[]" value="Tapa" checked="">
+                                        Tapa
+                                        <span></span>
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">8</th>
+                                <td>Oxigeno</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>
+                                    <label class="k-checkbox">
+                                        <input type="checkbox" name="account_communication[]" value="Tapa" checked="">
+                                        Tapa
+                                        <span></span>
+                                    </label>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <hr />
+
+            <div class="row">
+                <div class="col">
+                    <Button ID="Button11" Class="btn btn-danger w-100">Eliminar</Button>
+                </div>
+
+                <div class="col">
+                    <Button ID="Button12" Class="btn btn-success w-100"> Confirmar</Button>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+    <script src="index.js"></script>
 </body>
 
 </html>
