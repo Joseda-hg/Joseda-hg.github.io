@@ -3,7 +3,7 @@
 "protocol_handlers": [{"protocol":"mailto","url":"/newEmail?to=%s"}], 
 "name": "Criogas",
 "short_name": "Criogas",
-"start_url": "http://https://joseda-hg.github.io/index.html",
+"start_url": "https://joseda-hg.github.io/index.html",
 "display": "standalone",
 "description": "Criogas, sistemas para transportistas",
 "lang": " Spanish",
