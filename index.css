@@ -1,8 +1,14 @@
 .content{
     padding: 4%;
     padding-top: 2%;
+    background-color: white;
 }
 
 nav{
     min-height: 70px;
 }
+
+body{
+    background-color: rgb(110, 109, 109);
+}
+
