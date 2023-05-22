@@ -2,6 +2,13 @@ import { fabric } from "fabric";
 
 console.log("test");
 
+function downloadD(dataurl, filename) {
+  const link = document.createElement("a");
+  link.href = dataurl;
+  link.download = filename;
+  link.click();
+}
+
 function run() {
   let canvas = new fabric.Canvas("myCanvas", {
     isDrawingMode: true,
@@ -14,19 +21,24 @@ function run() {
     height: 2,
   });
   canvas.add(line);
+
   var clearEl = document.getElementById("clear-canvas");
   clearEl.onclick = function () {
     canvas.clear();
+    canvas.add(line);
   };
 
-  document.getElementById("downloadbtn").onclick = saveImage();
-  function saveImage(c) {
-    this.href = canvas.toDataURL({
+  var download = document.getElementById("download");
+
+  download.onclick = function () {
+    var dataURL = canvas.toDataURL({
       format: "png",
-      quality: 0.8,
+      quality: 1.0,
     });
-    this.download = "testimage.png";
-  }
+    console.log(dataURL);
+    downloadD(dataURL, "Firma.png")
+    // window.open(dataURL)
+  };
 }
 
 run();
