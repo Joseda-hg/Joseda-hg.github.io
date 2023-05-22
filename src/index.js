@@ -1,21 +1,32 @@
-import {fabric} from 'fabric';
+import { fabric } from "fabric";
 
-console.log("test")
+console.log("test");
 
 function run() {
-  let canvas = new fabric.Canvas('myCanvas',{
-    isDrawingMode: true
+  let canvas = new fabric.Canvas("myCanvas", {
+    isDrawingMode: true,
   });
-  //   let rect = new fabric.Rect({
-      //     left: 100,
-      //     top: 100,
-      //     fill: 'red',
-      //     width: 20,
-      //     height: 20
-      //   });
-      //   canvas.add(rect);
-      var clearEl = $('clear-canvas');
-      clearEl.onclick = function() { canvas.clear() };
-    }
-    
+  let line = new fabric.Rect({
+    left: 100,
+    top: 100,
+    fill: "black",
+    width: 200,
+    height: 2,
+  });
+  canvas.add(line);
+  var clearEl = document.getElementById("clear-canvas");
+  clearEl.onclick = function () {
+    canvas.clear();
+  };
+
+  document.getElementById("downloadbtn").onclick = saveImage();
+  function saveImage(c) {
+    this.href = canvas.toDataURL({
+      format: "png",
+      quality: 0.8,
+    });
+    this.download = "testimage.png";
+  }
+}
+
 run();
