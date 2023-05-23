@@ -1,78 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="apple-mobile-web-app-status-bar" content="#aa7700" />
-    <meta name="theme-color" content="black" />
 
-    <!-- Manifest File link -->
-    <script>
-      navigator.serviceWorker.register("service-worker.js");
-    </script>
-    <link rel="manifest" href="manifest.json" />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="apple-mobile-web-app-status-bar" content="#aa7700" />
+  <meta name="theme-color" content="black" />
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-      crossorigin="anonymous"
-    ></script>
+  <!-- Manifest File link -->
+  <script>
+    navigator.serviceWorker.register("service-worker.js");
+  </script>
+  <link rel="manifest" href="manifest.json" />
 
-    <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css"
-    />
-    <link rel="stylesheet" href="index.css" />
-  </head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
 
-  <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Criogas</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"
-                >REC Conductores</a
-              >
-            </li>
-          </ul>
-        </div>
+  <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css" />
+  <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Criogas</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">REC Conductores</a>
+          </li>
+        </ul>
       </div>
-    </nav>
-    <!--Termina: Encabezado de Pagina -->
+    </div>
+  </nav>
+  <!--Termina: Encabezado de Pagina -->
 
-    <!--Comienza: contenido de Pagina -->
-    <div class="content-wrapper" id="cw">
-      <!--Comienza: contenido del primer tab -->
+  <!--Comienza: contenido de Pagina -->
+  <div class="content-wrapper container-fluid" id="cw">
+    <!--Comienza: contenido del primer tab -->
+    <div class="row justify-content-md-center">
+
       <div class="row">
         <div class="col">
           <label runat="server">Total de Cilindros</label>
-          <input
-            class="form-control"
-            type="text"
-            placeholder="10 Cilindros..."
-            aria-label="default input example"
-          />
+          <input class="form-control" type="text" placeholder="10 Cilindros..." aria-label="default input example" />
         </div>
       </div>
 
@@ -80,11 +60,7 @@
         <div class="col">
           <p>Clientes</p>
           <div class="form-floating">
-            <select
-              class="form-select"
-              id="floatingSelect"
-              aria-label="Floating label select example"
-            >
+            <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
               <option selected>Jose Hernandez</option>
               <option value="1">Francisco Cardenas</option>
               <!-- <option value="2">Two</option>
@@ -96,11 +72,7 @@
         <div class="col">
           <p>Conductores</p>
           <div class="form-floating">
-            <select
-              class="form-select"
-              id="floatingSelect"
-              aria-label="Floating label select example"
-            >
+            <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
               <option selected>Jose Hernandez</option>
               <option value="1">One</option>
               <option value="2">Two</option>
@@ -111,27 +83,19 @@
         </div>
       </div>
       <hr />
-      <div class="row">
-        <div class="col">
+      <div class="row justify-content-md-center">
+        <div class="col-sm">
           <div class="row">
             <div class="col">
               <div class="form-floating">
-                <input
-                  class="form-control"
-                  type="text"
-                  placeholder="Default input"
-                  aria-label="default input example"
-                />
+                <input class="form-control" type="text" placeholder="Default input"
+                  aria-label="default input example" />
                 <label for="floatingSelect">Capacidad</label>
               </div>
             </div>
             <div class="col">
               <div class="form-floating">
-                <select
-                  class="form-select"
-                  id="floatingSelect"
-                  aria-label="Floating label select example"
-                >
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
                   <option selected>Seleccionar Unidad</option>
                   <option value="1">M3</option>
                   <option value="2">KG</option>
@@ -147,11 +111,7 @@
           <div class="row">
             <div class="col">
               <div class="form-floating">
-                <select
-                  class="form-select"
-                  id="floatingSelect"
-                  aria-label="Floating label select example"
-                >
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
                   <option selected>Seleccione una opcion</option>
                   <option value="1">Con tapa</option>
                   <option value="2">Sin tapa</option>
@@ -161,11 +121,7 @@
             </div>
             <div class="col">
               <div class="form-floating">
-                <select
-                  class="form-select"
-                  id="floatingSelect"
-                  aria-label="Floating label select example"
-                >
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
                   <option selected>Seleccione una opcion</option>
                   <option value="1">Criogas</option>
                   <option value="2">Particular</option>
@@ -173,13 +129,8 @@
                 <label for="floatingSelect">Propiedad</label>
               </div>
 
-              <dx:ASPxComboBox
-                ID="ASPxComboBox4"
-                Width="100%"
-                runat="server"
-                Theme="MaterialCompact"
-                EnableTheming="True"
-              >
+              <dx:ASPxComboBox ID="ASPxComboBox4" Width="100%" runat="server" Theme="MaterialCompact"
+                EnableTheming="True">
                 <Items>
                   <dx:ListEditItem Text=""></dx:ListEditItem>
                   <dx:ListEditItem Text="Particular"></dx:ListEditItem>
@@ -192,27 +143,15 @@
           <hr />
           <div class="row">
             <div class="col">
-              <dx:ASPxComboBox
-                ID="ASPxComboBox2"
-                runat="server"
-                DataSourceID="SqlDataSource2"
-                Theme="MaterialCompact"
-              >
+              <dx:ASPxComboBox ID="ASPxComboBox2" runat="server" DataSourceID="SqlDataSource2" Theme="MaterialCompact">
                 <Columns>
-                  <dx:ListBoxColumn
-                    FieldName="GasTipo_Descripcion"
-                    Caption="Tipo de gas"
-                  >
+                  <dx:ListBoxColumn FieldName="GasTipo_Descripcion" Caption="Tipo de gas">
                   </dx:ListBoxColumn>
                 </Columns>
               </dx:ASPxComboBox>
 
               <div class="form-floating">
-                <select
-                  class="form-select"
-                  id="floatingSelect"
-                  aria-label="Floating label select example"
-                >
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
                   <!-- <option selected>Open this select menu</option> -->
                   <option value="1">Oxigeno</option>
                   <option value="2">Argon</option>
@@ -225,19 +164,14 @@
               <button id="Button3" class="btn btn-warning w-100">-</button>
             </div>
             <div class="col">
-              <input
-                class="form-control"
-                type="text"
-                placeholder="0..."
-                aria-label="default input example"
-              />
+              <input class="form-control" type="text" placeholder="0..." aria-label="default input example" />
             </div>
             <div class="col">
               <button id="Button6" class="btn btn-primary w-100">+</button>
             </div>
           </div>
         </div>
-        <div class="col">
+        <div class="col-sm">
           <table class="table">
             <thead class="thead-light">
               <tr>
@@ -258,12 +192,7 @@
                 <td>0</td>
                 <td>
                   <label class="k-checkbox">
-                    <input
-                      type="checkbox"
-                      name="account_communication[]"
-                      value="Tapa"
-                      checked=""
-                    />
+                    <input type="checkbox" name="account_communication[]" value="Tapa" checked="" />
                     Tapa
                     <span></span>
                   </label>
@@ -278,12 +207,7 @@
                 <td>0</td>
                 <td>
                   <label class="k-checkbox">
-                    <input
-                      type="checkbox"
-                      name="account_communication[]"
-                      value="Tapa"
-                      checked=""
-                    />
+                    <input type="checkbox" name="account_communication[]" value="Tapa" checked="" />
                     Tapa
                     <span></span>
                   </label>
@@ -298,12 +222,7 @@
                 <td>0</td>
                 <td>
                   <label class="k-checkbox">
-                    <input
-                      type="checkbox"
-                      name="account_communication[]"
-                      value="Tapa"
-                      checked=""
-                    />
+                    <input type="checkbox" name="account_communication[]" value="Tapa" checked="" />
                     Tapa
                     <span></span>
                   </label>
@@ -318,12 +237,7 @@
                 <td>0</td>
                 <td>
                   <label class="k-checkbox">
-                    <input
-                      type="checkbox"
-                      name="account_communication[]"
-                      value="Tapa"
-                      checked=""
-                    />
+                    <input type="checkbox" name="account_communication[]" value="Tapa" checked="" />
                     Tapa
                     <span></span>
                   </label>
@@ -338,12 +252,7 @@
                 <td>0</td>
                 <td>
                   <label class="k-checkbox">
-                    <input
-                      type="checkbox"
-                      name="account_communication[]"
-                      value="Tapa"
-                      checked=""
-                    />
+                    <input type="checkbox" name="account_communication[]" value="Tapa" checked="" />
                     Tapa
                     <span></span>
                   </label>
@@ -358,12 +267,7 @@
                 <td>0</td>
                 <td>
                   <label class="k-checkbox">
-                    <input
-                      type="checkbox"
-                      name="account_communication[]"
-                      value="Tapa"
-                      checked=""
-                    />
+                    <input type="checkbox" name="account_communication[]" value="Tapa" checked="" />
                     Tapa
                     <span></span>
                   </label>
@@ -378,12 +282,7 @@
                 <td>0</td>
                 <td>
                   <label class="k-checkbox">
-                    <input
-                      type="checkbox"
-                      name="account_communication[]"
-                      value="Tapa"
-                      checked=""
-                    />
+                    <input type="checkbox" name="account_communication[]" value="Tapa" checked="" />
                     Tapa
                     <span></span>
                   </label>
@@ -397,12 +296,7 @@
                 <td>0</td>
                 <td>
                   <label class="k-checkbox">
-                    <input
-                      type="checkbox"
-                      name="account_communication[]"
-                      value="Tapa"
-                      checked=""
-                    />
+                    <input type="checkbox" name="account_communication[]" value="Tapa" checked="" />
                     Tapa
                     <span></span>
                   </label>
@@ -412,6 +306,8 @@
           </table>
         </div>
       </div>
+
+
       <hr />
 
       <div class="row">
@@ -420,22 +316,47 @@
         </div>
 
         <div class="col">
-          <button id="Button12" class="btn btn-success w-100">Confirmar</button>
+          <button id="Button12" class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Confirmar
+          </button>
         </div>
       </div>
     </div>
-
-    <div class="canvas-wrapper">
-      <canvas
-        id="myCanvas"
-        width="400"
-        height="200"
-        style="border: 1px solid #000000"
-      >
-      </canvas>
-      <button id="clear-canvas" class="btn btn-info">Limpiar Campo</button>
-      <button id="download" class="btn btn-info">Descargar Firma</button>
+  </div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Firma del cliente</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="canvas-wrapper">
+            <canvas id="myCanvas" width="400" height="200" style="border: 1px solid #000000">
+            </canvas>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button id="clear-canvas" class="btn btn-info">
+            Limpiar Campo
+          </button>
+          <button id="download" class="btn btn-info">Descargar Firma</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Cancelar
+          </button>
+        </div>
+      </div>
     </div>
-    <script src="main.js"></script>
-  </body>
+  </div>
+
+  <hr />
+  <!-- Button trigger modal -->
+
+  <script src="../dist/main.js"></script>
+  <script src="main.js"></script>
+</body>
+
 </html>
