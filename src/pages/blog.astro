@@ -1,7 +1,11 @@
 ---
 import Navbar from "../components/Navbar.astro"
 import Footer from "../components/Footer.astro"
+const allPosts = await Astro.glob('../pages/blog/*.md');
+
 ---
 <Navbar/>
 <p>BLOGH</p>
+{allPosts.map((post) => <li><a href={post.url}>{post.frontmatter.title}</a></li>)}
+
 <Footer/>

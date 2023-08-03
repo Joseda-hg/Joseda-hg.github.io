@@ -1,0 +1,46 @@
+---
+import Navbar from "../components/Navbar.astro"
+import Footer from "../components/Footer.astro"
+---
+<Navbar/>
+<p>Contacto</p>
+<form action="https://formbold.com/s/3Gjv9" method="POST">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Direccion de correo electronico</label>
+      <input type="email" name="Correo electronico"
+        class="form-control"  
+        id="direccionMail"
+        aria-describedby="emailHelp"
+        placeholder="Correo Electronico" required={true}
+      ></input>
+    </div>
+
+    <label for="exampleInputEmail1">Nombre</label>
+    <input
+      type="text"
+      class="form-control"
+      id="Nombre"
+      aria-describedby="emailHelp"
+      placeholder="Nombre" required={true}
+      name="Nombre"
+    ></input>
+    <label for="exampleInputEmail1">Mensaje</label>
+
+    <textarea
+      class="form-control"
+      id="mensaje"
+      aria-describedby="emailHelp"
+      placeholder="Escribe tu mensaje aqui..." required={true}
+      name="Mensaje"
+    ></textarea>
+
+    <br />
+    <button
+      type="submit"
+      class="btn btn-primary btn-block"
+      id="formButton"
+
+   
+      value={"Enviar"}> Enviar formulario</button>
+  </form>
+<Footer/>
