@@ -1,3 +1,9 @@
+---
+layout: ../layouts/Blog.astro
+title: "Monastery!"
+author: "Jose Hernandez"
+date: "09 Aug 2022"
+---
 # Monastery
 
 Los monjes ~~modernos~~ pueden ser la maxima referencia que podemos tener de ascetismo, son personas quen se privan intencionalmente
