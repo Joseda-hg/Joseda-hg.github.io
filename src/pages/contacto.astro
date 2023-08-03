@@ -1,6 +1,8 @@
 ---
 import Navbar from "../components/Navbar.astro"
 import Footer from "../components/Footer.astro"
+import "../vanilla.css"
+
 ---
 <Navbar/>
 <p>Contacto</p>
@@ -25,9 +27,8 @@ import Footer from "../components/Footer.astro"
       name="Nombre"
     ></input>
     <label for="exampleInputEmail1">Mensaje</label>
-
+<br>
     <textarea
-      class="form-control"
       id="mensaje"
       aria-describedby="emailHelp"
       placeholder="Escribe tu mensaje aqui..." required={true}
