@@ -3,7 +3,8 @@
 <script>
     import ePub from "epubjs";
     import jszip from "jszip";
-    var book = ePub("src/pages/6stories.epub");
+    var book = ePub("https://s3.amazonaws.com/moby-dick/");
+    // var book = ePub("src/pages/6stories.epub");
     var rendition = book.renderTo("area", {
       // manager: "continuous",
       // flow: "scrolled-doc",
