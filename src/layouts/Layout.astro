@@ -1,12 +1,14 @@
 --- 
-import Navbar from "../components/Navbar.astro"
+import CustomNavbar from "../components/CustomNavbar.astro"
 import Footer from "../components/Footer.astro"
+import 'bootstrap/dist/css/bootstrap.css'
+
 interface Props {
 	title: string;
 }
 
 const { title } = Astro.props;
-import "../vanilla.css"
+// import "../vanilla.css"
 ---
 
 <!DOCTYPE html>
@@ -20,7 +22,7 @@ import "../vanilla.css"
 		<title>{title}</title>
 	</head>
 	<body>
-		<Navbar/>
+		<CustomNavbar/>
 		<slot />
 		<Footer/>
 	</body>

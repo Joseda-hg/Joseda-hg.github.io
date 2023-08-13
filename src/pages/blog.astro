@@ -1,12 +1,19 @@
 ---
-import 'bootstrap/dist/css/bootstrap.css'
-import Navbar from "../components/Navbar.astro"
-import Footer from "../components/Footer.astro"
-const allPosts = await Astro.glob('../pages/blog/*.md');
-
+import Navbar from "../components/CustomNavbar.astro";
+import Footer from "../components/Footer.astro";
+const allPosts = await Astro.glob("../pages/blog/*.md");
+import Layout from "../layouts/Layout.astro";
+import "bootstrap/dist/css/bootstrap.css";
 ---
-<Navbar/>
-<p>BLOGH</p>
-{allPosts.map((post) => <li><a href={post.url}>{post.frontmatter.title}</a></li>)}
+<Layout title="Personal Site">
+  
+  <p>BLOGH</p>
+  {
+  allPosts.map((post) => (
+    <li>
+      <a href={post.url}>{post.frontmatter.title}</a>
+    </li>
+  ))
+}
 
-<Footer/>
+</Layout>

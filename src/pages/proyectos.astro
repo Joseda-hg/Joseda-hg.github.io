@@ -1,18 +1,32 @@
 ---
-import Navbar from "../components/Navbar.astro"
-import Footer from "../components/Footer.astro"
-import 'bootstrap/dist/css/bootstrap.css'
-
+import CustomNavbar from "../components/CustomNavbar.astro";
+import Footer from "../components/Footer.astro";
+import Card from "../components/Card.astro";
+import "bootstrap/dist/css/bootstrap.css";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<main>
-    <Navbar/>
-    <p>TurismoTem</p>
-    <p>GutBooks</p>
-    <p>Ejercicios App</p>
-    <p>GiveMeMoney</p>
-    <Footer/>
-</main>
-<style>
+<Layout title="Personal Site">
+  <main>
+    <CustomNavbar />
 
-</style>
+    <div class="row">
+      <div class="col">
+        <Card title="Title" body="body" href="href" />
+      </div>
+      <div class="col">
+        <Card title="GutBooks" body="body" href="href" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <Card title="Gimme Money" body="body" href="href" />
+      </div>
+      <div class="col">
+        <Card title="Ejercicios App" body="body" href="href" />
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style></style>
