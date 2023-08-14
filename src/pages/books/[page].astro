@@ -1,0 +1,35 @@
+---
+//@ts-ignore
+import json from "../../books.json";
+import Layout from "../../layouts/Layout.astro";
+// @ts-ignore
+export async function getStaticPaths({ paginate }) {
+  return paginate(json, { pageSize: 10 });
+}
+const { page } = Astro.props;
+---
+
+<Layout title="Persoal siet">
+  
+    <h1>Page {page.currentPage}</h1>
+    {page.url.prev ? <a href={page.url.prev}>Previous</a> : null}
+    {page.url.next ? <a href={page.url.next}>Next</a> : null}
+    <!-- <h2>Reach out to the team…</h2> -->
+    <ul>
+      {
+        //@ts-ignore
+        page.data.map(({ Text, Title, Authors }) => (
+          <li>
+            <p class="name">{Title}</p>
+            <p>
+              <a href={`https://www.gutenberg.org/ebooks/${Text}`}>{Authors}</a>
+              <a href={`https://www.gutenberg.org/ebooks/${Text}.epub3.images`}>
+                Link al ePub
+              </a>
+            </p>
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+</Layout>
