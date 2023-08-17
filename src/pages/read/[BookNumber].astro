@@ -1,5 +1,5 @@
 ---
-export const prerender = true;
+// export const prerender = true;
 
 import json from "../../books.json";
 // @ts-ignore
@@ -100,9 +100,9 @@ const { book } = Astro.props;
 </script>
 
 <div id="area">
-  {json[book.Text - 1].Text}
-  {json[book.Text - 1].Title}
-  {json[book.Text - 1].Language}
+  {json[book.Text-1].Text}
+  {json[book.Text-1].Title}
+  {json[book.Text-1].Language}
 </div>
 <div id="next">SIGUIENTE</div>
 <div id="prev">ANTERIOR</div>
