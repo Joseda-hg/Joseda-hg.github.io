@@ -21,7 +21,12 @@ const {BookId} = Astro.props
   //@ts-ignore
   import jszip from "jszip";
   //@ts-ignore
-  var bookF = ePub(`/${BookId}.epub`);
+  const currentUrl = window.location.href; console.log(currentUrl); 
+  const myArray = currentUrl.split("/");
+//   console.log(myArray[-1])
+  const [lastItem] = myArray.slice(-1)
+  console.log(lastItem)
+  var bookF = ePub(`/${lastItem}.epub`);
   var rendition = bookF.renderTo("area", {
     // manager: "continuous",
     // flow: "scrolled-doc",
@@ -86,7 +91,7 @@ const {BookId} = Astro.props
   });
 </script>
 <div id="area">
-    {json[BookId].Text}
-    {json[BookId].Title}
-    {json[BookId].Language}
+    {json[BookId-1].Text}
+    {json[BookId-1].Title}
+    {json[BookId-1].Language}
   </div>
