@@ -13,9 +13,8 @@ export async function getStaticPaths() {
   });
 }
 const { book } = Astro.props;
-
 ---
 
-<Reader BookId={book.Text} ></Reader>
+<Reader BookId={BookNumber} />
 <div id="next">SIGUIENTE</div>
 <div id="prev">ANTERIOR</div>

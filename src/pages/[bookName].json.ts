@@ -1,5 +1,4 @@
-// Salidas: /builtwith.json
-export const prerender = false;
+export const prerender = true;
 export const config = {
   runtime: 'serverless',
 };
@@ -18,6 +17,7 @@ export async function get({params, request}) {
   const id = params.bookName;
   return {
     body: JSON.stringify({
+      //@ts-ignore
       nombre: `${json[id-1].Title}`,
       url: `https://www.gutenberg.org/ebooks/${json[id-1].Text}.epub3.images`,
     }),
