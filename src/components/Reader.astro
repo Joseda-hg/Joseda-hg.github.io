@@ -26,8 +26,8 @@ const {BookId} = Astro.props
 //   console.log(myArray[-1])
   const [lastItem] = myArray.slice(-1)
   console.log(lastItem)
-  var bookF = ePub(`/${lastItem}.epub`);
-  var rendition = bookF.renderTo("area", {
+  var book = ePub(`/${lastItem}.epub`);
+  var rendition = book.renderTo("area", {
     // manager: "continuous",
     // flow: "scrolled-doc",
     spread: "always",
@@ -35,7 +35,7 @@ const {BookId} = Astro.props
     height: 600,
   });
   rendition.display();
-  bookF.ready.then(() => {
+  book.ready.then(() => {
     var next = document.getElementById("next");
     var prev = document.getElementById("prev");
 
