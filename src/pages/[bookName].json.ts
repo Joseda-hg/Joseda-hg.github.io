@@ -1,7 +1,7 @@
 // Salidas: /builtwith.json
 export const prerender = false;
 export const config = {
-  runtime: 'edge',
+  runtime: 'serverless',
 };
 import json from "../books.json";
 export async function getStaticPaths() {
