@@ -1,6 +1,6 @@
 export const prerender = false;
 export const config = {
-  runtime: 'edge',
+  runtime: 'serverless',
 };
 export async function get({ params, request }) {
     const id = params.id;
