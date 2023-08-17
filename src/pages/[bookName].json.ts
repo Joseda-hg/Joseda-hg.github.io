@@ -11,7 +11,7 @@ export async function getStaticPaths() {
     };
   });
 }
-
+// @ts-ignore
 export async function get({params, request}) {
   const id = params.bookName;
   return {
