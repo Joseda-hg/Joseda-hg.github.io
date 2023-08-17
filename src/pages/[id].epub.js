@@ -1,5 +1,7 @@
 export const prerender = false;
-
+export const config = {
+  runtime: 'edge',
+};
 export async function get({ params, request }) {
     const id = params.id;
     const response = await fetch(`https://www.gutenberg.org/ebooks/${id}.epub3.images`);

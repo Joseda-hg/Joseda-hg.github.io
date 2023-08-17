@@ -1,6 +1,8 @@
 // Salidas: /builtwith.json
 export const prerender = false;
-
+export const config = {
+  runtime: 'edge',
+};
 import json from "../books.json";
 export async function getStaticPaths() {
   // @ts-ignore
