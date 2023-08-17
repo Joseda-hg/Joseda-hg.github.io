@@ -13,10 +13,9 @@ export async function getStaticPaths() {
   });
 }
 const { book } = Astro.props;
-const { message = 'Welcome, world!' } = Astro.props;
 
 ---
 
-<Reader data-message="Welcome" BookId={book.Text} ></Reader>
+<Reader BookId={book.Text} ></Reader>
 <div id="next">SIGUIENTE</div>
 <div id="prev">ANTERIOR</div>
