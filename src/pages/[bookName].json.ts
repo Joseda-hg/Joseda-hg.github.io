@@ -1,4 +1,5 @@
 // Salidas: /builtwith.json
+export const prerender = false;
 
 import json from "../books.json";
 export async function getStaticPaths() {

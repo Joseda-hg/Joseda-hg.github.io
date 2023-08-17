@@ -1,0 +1,21 @@
+---
+export const prerender = false;
+
+import json from "../../books.json";
+import Reader from "../../components/Reader.astro";
+// @ts-ignore
+export async function getStaticPaths() {
+  return json.map((book) => {
+    return {
+      params: { BookNumber: book.Text },
+      props: { book },
+    };
+  });
+}
+const { book } = Astro.props;
+
+---
+
+<Reader BookId={book.Text} ></Reader>
+<div id="next">SIGUIENTE</div>
+<div id="prev">ANTERIOR</div>
