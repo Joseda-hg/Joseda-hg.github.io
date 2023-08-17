@@ -1,0 +1,97 @@
+---
+import json from "../books.json";
+// // @ts-ignore
+// export async function getStaticPaths() {
+//   return json.map((book) => {
+//     return {
+//       params: { Text: book.Text },
+//       props: { book },
+//     };
+//   });
+// }
+// const { book } = Astro.props;
+// const response = await fetch(`https://www.gutenberg.org/ebooks/${Text}.epub3.images`);
+// const data = await response.json();
+// const bookText = data.results[0];
+---
+
+<script>
+  //@ts-ignore
+  import ePub from "epubjs";
+  //@ts-ignore
+  import jszip from "jszip";
+
+  //@ts-ignore
+  var book = ePub(`https://www.gutenberg.org/ebooks/${1}.epub3.images`);
+  // var book = ePub(`https://www.gutenberg.org/ebooks/${Text}.epub3.images`);
+  // var book = ePub("src/pages/6stories.epub");
+
+  var rendition = book.renderTo("area", {
+    // manager: "continuous",
+    // flow: "scrolled-doc",
+    spread: "always",
+    width: "100%",
+    height: 600,
+  });
+  rendition.display();
+  book.ready.then(() => {
+    var next = document.getElementById("next");
+    var prev = document.getElementById("prev");
+
+    //@ts-ignore
+    next.addEventListener(
+      "click",
+      function (e) {
+        //@ts-ignore
+        book.package.metadata.direction === "rtl"
+          ? rendition.prev()
+          : rendition.next();
+        e.preventDefault();
+      },
+      false
+    );
+
+    var prev = document.getElementById("prev");
+    //@ts-ignore
+    prev.addEventListener(
+      "click",
+      function (e) {
+        //@ts-ignore
+        book.package.metadata.direction === "rtl"
+          ? rendition.next()
+          : rendition.prev();
+        e.preventDefault();
+      },
+      false
+    );
+    // @ts-ignore
+
+    var keyListener = function (e) {
+      // Left Key
+      if ((e.keyCode || e.which) == 37) {
+        //@ts-ignore
+
+        book.package.metadata.direction === "rtl"
+          ? rendition.next()
+          : rendition.prev();
+      }
+
+      // Right Key
+      if ((e.keyCode || e.which) == 39) {
+        //@ts-ignore
+        book.package.metadata.direction === "rtl"
+          ? rendition.prev()
+          : rendition.next();
+      }
+    };
+
+    rendition.on("keyup", keyListener);
+    document.addEventListener("keyup", keyListener, false);
+  });
+</script>
+
+<div id="area">
+
+ </div>
+<div id="next">SIGUIENTE</div>
+<div id="prev">ANTERIOR</div>
