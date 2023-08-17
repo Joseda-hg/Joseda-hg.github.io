@@ -1,7 +1,4 @@
 export const prerender = true;
-export const config = {
-  runtime: "serverless",
-};
 import json from "../books.json";
 export async function getStaticPaths() {
   // @ts-ignore
@@ -18,7 +15,6 @@ export async function get({ params, request }) {
   return {
     body: JSON.stringify({
       //@ts-ignore
-
       nombre: `${json[id - 1].Title}`,
       //@ts-ignore
       url: `https://www.gutenberg.org/ebooks/${json[id - 1].Text}.epub3.images`,
