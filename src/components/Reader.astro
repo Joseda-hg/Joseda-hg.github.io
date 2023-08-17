@@ -1,0 +1,92 @@
+---
+export const prerender = true;
+
+import json from "../books.json";
+// @ts-ignore
+export async function getStaticPaths() {
+  return json.map((book) => {
+    return {
+      params: { BookId: book.Text },
+      props: { book },
+    };
+  });
+}
+
+const {BookId} = Astro.props
+
+---
+<script>
+  //@ts-ignore
+  import ePub from "epubjs";
+  //@ts-ignore
+  import jszip from "jszip";
+  //@ts-ignore
+  var bookF = ePub(`/${BookId}.epub`);
+  var rendition = bookF.renderTo("area", {
+    // manager: "continuous",
+    // flow: "scrolled-doc",
+    spread: "always",
+    width: "100%",
+    height: 600,
+  });
+  rendition.display();
+  bookF.ready.then(() => {
+    var next = document.getElementById("next");
+    var prev = document.getElementById("prev");
+
+    //@ts-ignore
+    next.addEventListener(
+      "click",
+      function (e) {
+        //@ts-ignore
+        book.package.metadata.direction === "rtl"
+          ? rendition.prev()
+          : rendition.next();
+        e.preventDefault();
+      },
+      false
+    );
+
+    var prev = document.getElementById("prev");
+    //@ts-ignore
+    prev.addEventListener(
+      "click",
+      function (e) {
+        //@ts-ignore
+        book.package.metadata.direction === "rtl"
+          ? rendition.next()
+          : rendition.prev();
+        e.preventDefault();
+      },
+      false
+    );
+    // @ts-ignore
+
+    var keyListener = function (e) {
+      // Left Key
+      if ((e.keyCode || e.which) == 37) {
+        //@ts-ignore
+
+        book.package.metadata.direction === "rtl"
+          ? rendition.next()
+          : rendition.prev();
+      }
+
+      // Right Key
+      if ((e.keyCode || e.which) == 39) {
+        //@ts-ignore
+        book.package.metadata.direction === "rtl"
+          ? rendition.prev()
+          : rendition.next();
+      }
+    };
+
+    rendition.on("keyup", keyListener);
+    document.addEventListener("keyup", keyListener, false);
+  });
+</script>
+<div id="area">
+    {json[BookId].Text}
+    {json[BookId].Title}
+    {json[BookId].Language}
+  </div>

@@ -1,7 +1,8 @@
 ---
-export const prerender = false;
+export const prerender = true;
 
 import json from "../../books.json";
+import Reader from "../../components/Reader.astro";
 // @ts-ignore
 export async function getStaticPaths() {
   return json.map((book) => {
@@ -12,97 +13,10 @@ export async function getStaticPaths() {
   });
 }
 const { book } = Astro.props;
+const { message = 'Welcome, world!' } = Astro.props;
+
 ---
 
-<script>
-  //@ts-ignore
-  import ePub from "epubjs";
-  //@ts-ignore
-  import jszip from "jszip";
-</script>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"
-></script> --><!-- <script
-  src="https://cdnjs.cloudflare.com/ajax/libs/epub.js/0.2.13/epub.min.js"
-  integrity="sha512-ktwncEGc1G2bleGfAdTgIxyHiE5/syR19HWAN3S0soSHF8+q7E73POq13slxkTwYrJF9rVFKaKh1zbZhKK9vdg=="
-  crossorigin="anonymous"
-  referrerpolicy="no-referrer"></script> -->
-<script>
-  //@ts-ignore
-  // var book = ePub(`https://www.gutenberg.org/ebooks/1.epub3.images`);
-  //@ts-ignore
-  import ePub from "epubjs";
-  //@ts-ignore
-  import jszip from "jszip";
-
-  var book = ePub("https://s3.amazonaws.com/moby-dick/");
-  var rendition = book.renderTo("area", {
-    // manager: "continuous",
-    // flow: "scrolled-doc",
-    spread: "always",
-    width: "100%",
-    height: 600,
-  });
-  rendition.display();
-  book.ready.then(() => {
-    var next = document.getElementById("next");
-    var prev = document.getElementById("prev");
-
-    //@ts-ignore
-    next.addEventListener(
-      "click",
-      function (e) {
-        //@ts-ignore
-        book.package.metadata.direction === "rtl"
-          ? rendition.prev()
-          : rendition.next();
-        e.preventDefault();
-      },
-      false
-    );
-
-    var prev = document.getElementById("prev");
-    //@ts-ignore
-    prev.addEventListener(
-      "click",
-      function (e) {
-        //@ts-ignore
-        book.package.metadata.direction === "rtl"
-          ? rendition.next()
-          : rendition.prev();
-        e.preventDefault();
-      },
-      false
-    );
-    // @ts-ignore
-
-    var keyListener = function (e) {
-      // Left Key
-      if ((e.keyCode || e.which) == 37) {
-        //@ts-ignore
-
-        book.package.metadata.direction === "rtl"
-          ? rendition.next()
-          : rendition.prev();
-      }
-
-      // Right Key
-      if ((e.keyCode || e.which) == 39) {
-        //@ts-ignore
-        book.package.metadata.direction === "rtl"
-          ? rendition.prev()
-          : rendition.next();
-      }
-    };
-
-    rendition.on("keyup", keyListener);
-    document.addEventListener("keyup", keyListener, false);
-  });
-</script>
-
-<div id="area">
-  {json[book.Text-1].Text}
-  {json[book.Text-1].Title}
-  {json[book.Text-1].Language}
-</div>
+<Reader data-message="Welcome" BookId={book.Text} ></Reader>
 <div id="next">SIGUIENTE</div>
 <div id="prev">ANTERIOR</div>
