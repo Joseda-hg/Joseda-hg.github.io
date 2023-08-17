@@ -12,9 +12,9 @@ export async function getStaticPaths() {
     };
   });
 }
-const { book } = Astro.props;
+const { bookF } = Astro.props;
 ---
 
-<Reader BookId={BookNumber} />
+<Reader BookId={bookF.Text} />
 <div id="next">SIGUIENTE</div>
 <div id="prev">ANTERIOR</div>
