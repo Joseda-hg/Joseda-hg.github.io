@@ -1,0 +1,70 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import "bootstrap/dist/css/bootstrap.css";
+---
+
+<Layout title="Welcome to Astro.">
+  <main>
+    <a
+      class="weatherwidget-io"
+      href="https://forecast7.com/es/n41d47n72d94/puerto-montt/"
+      data-label_1="PUERTO MONTT"
+      data-label_2="Clima"
+      data-theme="original">PUERTO MONTT Clima</a
+    >
+    <script>
+      !(function (d, s, id) {
+        var js,
+          fjs = d.getElementsByTagName(s)[0];
+        if (!d.getElementById(id)) {
+          js = d.createElement(s);
+          js.id = id;
+          js.src = "https://weatherwidget.io/js/widget.min.js";
+          fjs.parentNode.insertBefore(js, fjs);
+        }
+      })(document, "script", "weatherwidget-io-js");
+    </script>
+
+    <p>Lista de Proyectos</p>
+    <ul>
+      <li><a>CRIOGAS</a></li>
+      <li><a href="vscode://">Monocolor.cl</a></li>
+      <li><a href="vscode://">Dashboard</a></li>
+      <li><a href="whatsapp://">Whatsapp</a></li>
+      <li><a href="obsidian://">Obisidian</a></li>
+      <li><a href="http://100.112.160.132:8989/">Sonarr</a></li>
+      <li><a href="http://100.112.160.132:7878/">Radarr</a></li>
+      <li><a href="http://100.112.160.132:9696/">Prowlarr</a></li>
+      <li><a href="http://100.112.160.132:6767/">Bazarr</a></li>
+      <li><a href="/">Ombi (Pendiente)</a></li>
+      <li><a href="https://youtube.com">YouTube</a></li>
+      <li><a href="https://music.youtube.com">YouTube Music</a></li>
+      <li><a href="https://reddit.com">Reddit</a></li>
+      <li><a href="https://hackernews.com">HackerNews</a></li>
+      <li><a href="https://intranet.aiep.cl">AIEP</a></li>
+    </ul>
+
+    <div
+      class="github-card"
+      data-github="Joseda-hg"
+      data-width="400"
+      data-height=""
+      data-theme="default"
+    >
+    </div>
+
+    <div
+      class="github-card"
+      data-github="Joseda-hg/Joseda-hg.github.io"
+      data-width="400"
+      data-height=""
+      data-theme="default"
+    >
+    </div>
+    <script is:inline src="//cdn.jsdelivr.net/github-cards/latest/widget.js"
+    ></script>
+  </main>
+</Layout>
+
+<style></style>
