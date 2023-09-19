@@ -1,0 +1,64 @@
+---
+import Layout from "../layouts/Layout.astro";
+import IdeaCard from "../components/IdeaCard.astro";
+import "bootstrap/dist/css/bootstrap.css";
+
+import PocketBase from "pocketbase";
+
+const pb = new PocketBase("http://100.112.160.132:8090");
+const records = await pb.collection("Ideas").getFullList({
+  sort: "-created",
+});
+---
+
+<Layout title="Welcome to Astro.">
+  <main>
+    <script>
+      import PocketBase from "pocketbase";
+      document.getElementById("xd").addEventListener("click", function () {
+        async function Crear() {
+          const data = {
+            titulo: document.getElementById("t").value,
+          };
+
+          const pb = new PocketBase("http://100.112.160.132:8090");
+          const record = await pb.collection("Ideas").create(data);
+        }
+        Crear();
+        alert("Creado!");
+        location.reload();
+      });
+
+      
+    </script>
+    <hr />
+    <div class="row">
+      <div class="col">
+        <button id="xd" class="btn btn-primary">Crear nueva idea</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <br />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label>Titulo</label>
+        <input type="text" id="t" />
+      </div>
+    </div>
+
+    <hr />
+    {
+      records.map((idea) => (
+        <IdeaCard
+          title={idea.titulo}
+          IdeaId={idea.id}
+          body={idea.blog}
+          href={idea.video}
+        />
+      ))
+    }
+  </main>
+</Layout>

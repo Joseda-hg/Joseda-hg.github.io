@@ -21,9 +21,9 @@ const {BookId} = Astro.props
   //@ts-ignore
   import jszip from "jszip";
   //@ts-ignore
-  const currentUrl = window.location.href; console.log(currentUrl); 
+  const currentUrl = window.location.href;
+  console.log(currentUrl); 
   const myArray = currentUrl.split("/");
-//   console.log(myArray[-1])
   const [lastItem] = myArray.slice(-1)
   console.log(lastItem)
   var book = ePub(`/${lastItem}.epub`);

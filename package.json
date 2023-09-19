@@ -19,10 +19,12 @@
     "bootstrap": "^5.3.1",
     "csv": "^6.3.1",
     "csvtojson": "^2.0.10",
+    "easymde": "^2.18.0",
     "epubjs": "^0.3.93",
     "firebase": "^10.1.0",
     "firebase-admin": "^11.10.1",
     "jszip": "^3.10.1",
+    "pocketbase": "^0.18.0",
     "sqlite3": "^5.1.6"
   }
 }

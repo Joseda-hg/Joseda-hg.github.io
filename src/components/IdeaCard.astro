@@ -1,35 +1,32 @@
 ---
 interface Props {
+  IdeaId: string;
   title: string;
   body: string;
   href: string;
 }
 
-const { href, title, body } = Astro.props;
+const { IdeaId, href, title, body } = Astro.props;
 ---
 
-<div class="card" style="width: 18rem;">
-  <img src="https://cataas.com/cat" class="card-img-top" alt="..." />
+  <script>
+    import PocketBase from "pocketbase";
+    //@ts-ignore
+    async function Eliminar(aid) {
+      const pb = new PocketBase("http://100.112.160.132:8090");
+      // await pb.collection("Ideas").delete(${IdeaId});
+    }
+  </script>
+<div class="card" style="width: 80%;">
   <div class="card-body">
     <h5 class="card-title">{title}</h5>
     <p class="card-text">
-      {href}
+      {body}
     </p>
-    <a href="#" class="btn btn-primary">{body}</a>
+    <a href=`/ideas/${IdeaId}` class="btn btn-primary">Ver Detalle</a>
   </div>
 </div>
 
-<!-- <li class="link-card">
-	<a href={href}>
-		<h2>
-			{title}
-			<span>&rarr;</span>
-		</h2>
-		<p>
-			{body}
-		</p>
-	</a>
-</li> -->
 <style>
   .link-card {
     list-style: none;
