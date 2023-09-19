@@ -6,77 +6,80 @@ const { id } = Astro.params;
 import PocketBase from "pocketbase";
 const pb = new PocketBase("http://100.112.160.132:8090");
 const record = await pb.collection("Ideas").getOne(`${[id]}`, {});
+import "../index.js";
 ---
 
 <Layout title="Personal site">
   <main>
+    
     <h1>{record.titulo}</h1>
     <textarea id="area"></textarea>
-    <script></script>
     <script>
+      import "../index.js";
+
       import PocketBase from "pocketbase";
       import EasyMDE from "easymde";
 
-      // import EasyMDE from "easymde";
-      // import PocketBase from "pocketbase";
-
       const pb = new PocketBase("http://100.112.160.132:8090");
-      const currentUrl = window.location.href;
-      const myArray = currentUrl.split("/");
-      const [lastItem] = myArray.slice(-1);
+      const [lastItem] = window.location.href.split("/").slice(-1);
+
       const record = await pb.collection("Ideas").getOne(`${lastItem}`, {});
       const easyMDE = new EasyMDE({
         element: document.getElementById("area"),
       });
       easyMDE.value(record.blog);
+
+      async function Eliminar() {
+        await pb.collection("Ideas").delete(`${lastItem}`);
+      }
+
+      async function Guardar() {
+        const data = {
+          blog: easyMDE.value(),
+        };
+        console.log(data);
+        const record2 = await pb
+          .collection("Ideas")
+          .update(`${lastItem}`, data);
+      }
+
+      function ChatGPTBlog() {
+        const textToCopy = "If I Change This";
+        window.navigator.clipboard.writeText(textToCopy);
+        location.replace("https://chat.openai.com/");
+      }
+      document
+        .getElementById("btnGuardar")
+        .addEventListener("click", function () {
+          Guardar();
+          alert("Guardado!");
+          location.reload();
+        });
+
       document
         .getElementById("btnEliminar")
         .addEventListener("click", function () {
-          const currentUrl = window.location.href;
-          const myArray = currentUrl.split("/");
-          const [lastItem] = myArray.slice(-1);
-
-          async function Eliminar() {
-            await pb.collection("Ideas").delete(`${lastItem}`);
-          }
           Eliminar();
           alert("Eliminado!");
           location.replace("/ideas");
         });
 
-      // const currentUrl = window.location.href;
-      // const myArray = currentUrl.split("/");
-      // const [lastItem] = myArray.slice(-1);
+      document.getElementById("a").addEventListener("click", function () {
+        ChatGPTBlog();
+      });
 
-      document
-        .getElementById("btnGuardar")
-        .addEventListener("click", function () {
-          const currentUrl = window.location.href;
-          const myArray = currentUrl.split("/");
-          const [lastItem] = myArray.slice(-1);
-
-          async function Guardar() {
-            const pb = new PocketBase("http://100.112.160.132:8090");
-            const data = {
-              blog: easyMDE.value(),
-            };
-            console.log(data)
-            const record = await pb
-              .collection("Ideas")
-              .update(`${lastItem}`, data);
-          }
-          Guardar();
-          alert("Guardado!");
-          location.reload();
-        });
+      document.getElementById("i").addEventListener("click", function () {
+        const textToCopy = "If I Change This";
+        location.replace(`https://twitter.com/intent/tweet?text=${textToCopy}`);      });
     </script>
 
     <button id="btnGuardar" class="btn btn-primary">Actualizar</button>
     <button id="btnEliminar" class="btn btn-danger">Eliminar idea</button>
     <button id="a" class="btn btn-warning">Generar Blog Post</button>
     <button id="b" class="btn btn-warning">Generar un Script</button>
-    <!-- <p>{record.id}</p> -->
+    <button id="i" class="btn btn-success">Twitter Intent</button>
+    <button id="i" class="btn btn-success">Twitter Intent</button>
+
     <p>{record.video}</p>
-    <!-- <p>{record.blog}</p> -->
   </main>
 </Layout>

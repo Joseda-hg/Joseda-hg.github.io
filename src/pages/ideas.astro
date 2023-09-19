@@ -28,37 +28,30 @@ const records = await pb.collection("Ideas").getFullList({
         alert("Creado!");
         location.reload();
       });
-
-      
     </script>
-    <hr />
-    <div class="row">
-      <div class="col">
-        <button id="xd" class="btn btn-primary">Crear nueva idea</button>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <br />
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <label>Titulo</label>
-        <input type="text" id="t" />
-      </div>
-    </div>
 
-    <hr />
-    {
-      records.map((idea) => (
-        <IdeaCard
-          title={idea.titulo}
-          IdeaId={idea.id}
-          body={idea.blog}
-          href={idea.video}
-        />
-      ))
-    }
+    <div class="flex-column">
+      <!-- <hr /> -->
+
+      <div class="row">
+        <div class="col">
+          <label>Titulo</label>
+          <input type="text" id="t" />
+          <button id="xd" class="btn btn-primary">Crear nueva idea</button>
+        </div>
+      </div>
+
+      {
+        records.map((idea) => (
+          <IdeaCard
+            title={idea.titulo}
+            IdeaId={idea.id}
+            body={idea.blog}
+            href={idea.video}
+          />
+        ))
+      }
+      <hr />
+    </div>
   </main>
 </Layout>
