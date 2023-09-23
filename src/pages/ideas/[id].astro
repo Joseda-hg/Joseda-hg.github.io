@@ -1,10 +1,10 @@
-<!-- ---
+---
 export const prerender = false;
 
 import Layout from "../../layouts/Layout.astro";
 const { id } = Astro.params;
 import PocketBase from "pocketbase";
-const pb = new PocketBase("http://100.112.160.132:8090");
+const pb = new PocketBase('https://thundering-banana.pockethost.io');
 const record = await pb.collection("Ideas").getOne(`${[id]}`, {});
 import "../index.js";
 ---
@@ -20,7 +20,7 @@ import "../index.js";
       import PocketBase from "pocketbase";
       import EasyMDE from "easymde";
 
-      const pb = new PocketBase("http://100.112.160.132:8090");
+      const pb = new PocketBase('https://thundering-banana.pockethost.io');
       const [lastItem] = window.location.href.split("/").slice(-1);
 
       const record = await pb.collection("Ideas").getOne(`${lastItem}`, {});
@@ -82,4 +82,4 @@ import "../index.js";
 
     <p>{record.video}</p>
   </main>
-</Layout> -->
+</Layout>

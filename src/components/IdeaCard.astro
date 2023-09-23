@@ -10,12 +10,12 @@ const { IdeaId, href, title, body } = Astro.props;
 ---
 
   <script>
-    // import PocketBase from "pocketbase";
-    // //@ts-ignore
-    // async function Eliminar(aid) {
-    //   // const pb = new PocketBase("http://100.112.160.132:8090");
-    //   // await pb.collection("Ideas").delete(${IdeaId});
-    // }
+    import PocketBase from "pocketbase";
+    //@ts-ignore
+    async function Eliminar(aid) {
+      const pb = new PocketBase('https://thundering-banana.pockethost.io');
+      // await pb.collection("Ideas").delete(${IdeaId});
+    }
   </script>
 <div class="card" style="width: 80%;">
   <div class="card-body">
