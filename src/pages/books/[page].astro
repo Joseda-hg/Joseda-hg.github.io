@@ -12,8 +12,6 @@ const { page } = Astro.props;
 ---
 
 <Layout title="Personal site">
-
-  
     <h1>Page {page.currentPage}</h1>
     {page.url.prev ? <a href={page.url.prev}>Previous</a> : null}
     {page.url.next ? <a href={page.url.next}>Next</a> : null}
