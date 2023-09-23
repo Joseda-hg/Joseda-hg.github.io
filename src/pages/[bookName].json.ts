@@ -1,4 +1,4 @@
-export const prerender = true;
+export const prerender = false;
 import json from "../books.json";
 export async function getStaticPaths() {
   // @ts-ignore
