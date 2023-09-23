@@ -1,21 +1,21 @@
 ---
-export const prerender = true;
+// export const prerender = true;
 
-import json from "../books.json";
-// @ts-ignore
-export async function getStaticPaths() {
-  return json.map((book) => {
-    return {
-      params: { BookId: book.Text },
-      props: { book },
-    };
-  });
-}
+// import json from "../books.json";
+// // @ts-ignore
+// export async function getStaticPaths() {
+//   return json.map((book) => {
+//     return {
+//       params: { BookId: book.Text },
+//       props: { book },
+//     };
+//   });
+// }
 
-const {BookId} = Astro.props
+// const {BookId} = Astro.props
 
 ---
-<script>
+<!-- <script>
   //@ts-ignore
   import ePub from "epubjs";
   //@ts-ignore
@@ -94,4 +94,4 @@ const {BookId} = Astro.props
     {json[BookId-1].Text}
     {json[BookId-1].Title}
     {json[BookId-1].Language}
-  </div>
+  </div> -->
