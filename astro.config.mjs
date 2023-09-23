@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
-import vercelEdge from '@astrojs/vercel/edge';
+import vercelServerless from '@astrojs/vercel/serverless';
  
 export default defineConfig({
   output: 'hybrid',
-  adapter: vercelEdge(),
+  adapter: vercelServerless(),
 });
