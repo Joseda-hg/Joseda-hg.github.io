@@ -1,6 +1,6 @@
 ---
  export const prerender = false;
- import json from "../books.json";
+//  import json from "../books.json";
 // @ts-ignore
 //  export async function getStaticPaths() {
 //    return json.map((book) => {
@@ -14,16 +14,10 @@
 
 ---
 <script>
-  //@ts-ignore
   import jszip from "jszip";
-  //@ts-ignore
   import ePub from "epubjs";
-  //@ts-ignore
+  const [lastItem] =  window.location.href.split("/").slice(-1)
 
-
-  const currentUrl = window.location.href;
-  const myArray = currentUrl.split("/");
-  const [lastItem] = myArray.slice(-1)
   var book = ePub(`/${lastItem}.epub`);
   var rendition = book.renderTo("area", {
     // manager: "continuous",
@@ -36,7 +30,6 @@
   book.ready.then(() => {
     var next = document.getElementById("next");
     var prev = document.getElementById("prev");
-
     //@ts-ignore
     next.addEventListener(
       "click",
@@ -64,7 +57,6 @@
       false
     );
     // @ts-ignore
-
     var keyListener = function (e) {
       // Left Key
       if ((e.keyCode || e.which) == 37) {
@@ -87,8 +79,9 @@
     document.addEventListener("keyup", keyListener, false);
   });
 </script>
+
 <div id="area">
-    {json[BookId-1].Text}
+    <!-- {json[BookId-1].Text}
     {json[BookId-1].Title}
-    {json[BookId-1].Language}
+    {json[BookId-1].Language} -->
   </div>
