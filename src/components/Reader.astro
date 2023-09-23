@@ -2,28 +2,28 @@
  export const prerender = false;
  import json from "../books.json";
 // @ts-ignore
- export async function getStaticPaths() {
-   return json.map((book) => {
-     return {
-       params: { BookId: book.Text },
-       props: { book },
-     };
-   });
- }
+//  export async function getStaticPaths() {
+//    return json.map((book) => {
+//      return {
+//        params: { BookId: book.Text },
+//        props: { book },
+//      };
+//    });
+//  }
  const {BookId} = Astro.props
 
 ---
 <script>
   //@ts-ignore
-  import ePub from "epubjs";
-  //@ts-ignore
   import jszip from "jszip";
   //@ts-ignore
+  import ePub from "epubjs";
+  //@ts-ignore
+
+
   const currentUrl = window.location.href;
-  console.log(currentUrl); 
   const myArray = currentUrl.split("/");
   const [lastItem] = myArray.slice(-1)
-  console.log(lastItem)
   var book = ePub(`/${lastItem}.epub`);
   var rendition = book.renderTo("area", {
     // manager: "continuous",
@@ -83,7 +83,6 @@
           : rendition.next();
       }
     };
-
     rendition.on("keyup", keyListener);
     document.addEventListener("keyup", keyListener, false);
   });
