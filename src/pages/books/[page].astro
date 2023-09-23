@@ -2,12 +2,12 @@
 export const prerender = false;
 
 //@ts-ignore
-import json from "../../books.json";
+// import json from "../../books.json";
 import Layout from "../../layouts/Layout.astro";
 // @ts-ignore
-export async function getStaticPaths({ paginate }) {
-  return paginate(json, { pageSize: 10 });
-}
+// export async function getStaticPaths({ paginate }) {
+//   return paginate(json, { pageSize: 10 });
+// }
 const { page } = Astro.props;
 ---
 
