@@ -1,16 +1,16 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import IdeaCard from "../components/IdeaCard.astro";
-import "bootstrap/dist/css/bootstrap.css";
+// import Layout from "../layouts/Layout.astro";
+// import IdeaCard from "../components/IdeaCard.astro";
+// import "bootstrap/dist/css/bootstrap.css";
 
-import PocketBase from "pocketbase";
+// import PocketBase from "pocketbase";
 
-const pb = new PocketBase("http://100.112.160.132:8090");
-const records = await pb.collection("Ideas").getFullList({
-  sort: "-created",
-});
+// const pb = new PocketBase("http://100.112.160.132:8090");
+// const records = await pb.collection("Ideas").getFullList({
+//   sort: "-created",
+// });
 ---
-
+<!-- 
 <Layout title="Welcome to Astro.">
   <main>
     <script>
@@ -31,7 +31,6 @@ const records = await pb.collection("Ideas").getFullList({
     </script>
 
     <div class="flex-column">
-      <!-- <hr /> -->
 
       <div class="row">
         <div class="col">
@@ -54,4 +53,4 @@ const records = await pb.collection("Ideas").getFullList({
       <hr />
     </div>
   </main>
-</Layout>
+</Layout> -->
