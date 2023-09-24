@@ -1,6 +1,23 @@
 # Pagina personal Jose Hernandez
 - Blog
 - Frontend para el Proyecto Gutenberg
+- Blog
+- Desarrollo de ideas a traves de ChatGPT
+- LinkTree
+- Playground para otras idas
+
+## Todos
+- Landing Page
+- PocketHost Envars
+- Combinar [Reader] y [Books]
+- Reader component 
+- Catalog
+- BookCard
+- Lista de Proyectos
+- Crear un BrandKit
+- CSS General de la pagina
+
+
 ---
 # Astro Starter Kit: Basics
 
