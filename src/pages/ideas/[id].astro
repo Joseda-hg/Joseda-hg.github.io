@@ -43,8 +43,9 @@ import "../index.js";
           .update(`${lastItem}`, data);
       }
 
-      function ChatGPTBlog() {
-        const textToCopy = "If I Change This";
+      async function ChatGPTBlog() {
+        const record = await pb.collection("Ideas").getOne(`${lastItem}`, {});
+        const textToCopy = "Necesito que generes el texto de un blog de 1000 palabras con la siguiente idea:" + record.blog ;
         window.navigator.clipboard.writeText(textToCopy);
         location.replace("https://chat.openai.com/");
       }
