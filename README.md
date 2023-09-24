@@ -1,6 +1,6 @@
 # Pagina personal Jose Hernandez
 - Blog
-
+- Frontend para el Proyecto Gutenberg
 ---
 # Astro Starter Kit: Basics
 
