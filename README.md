@@ -1,3 +1,7 @@
+# Pagina personal Jose Hernandez
+- Blog
+
+---
 # Astro Starter Kit: Basics
 
 ```
