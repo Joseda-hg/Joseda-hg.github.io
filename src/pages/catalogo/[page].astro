@@ -1,0 +1,30 @@
+---
+// export const prerender = false
+import Layout from "../../layouts/Layout.astro";
+
+// import "../books.json";
+import PocketBase from "pocketbase";
+export async function getStaticPaths({ paginate }) {
+  const pb = new PocketBase("https://thundering-banana.pockethost.io");
+  const authData = await pb.admins.authWithPassword(
+    "mikutorif@gmail.com",
+    "1234567890"
+  );
+
+  const records = await pb
+    .collection("Libros")
+    .getFullList({ sort: "GutenbergId" });
+  return paginate(records, { pageSize: 10  });
+}
+// All paginated data is passed on the "page" prop
+const { page } = Astro.props;
+---
+
+<Layout title="Personal Site" />
+
+<h1>Page {page.currentPage}</h1>
+<ul>
+  {page.data.map(({ Titulo, Autores }) => <li>{Titulo}</li>)}
+</ul>
+{page.url.prev ? <a href={page.url.prev}>Previous</a> : null}
+{page.url.next ? <a href={page.url.next}>Next</a> : null}
