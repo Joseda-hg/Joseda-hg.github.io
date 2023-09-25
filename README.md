@@ -11,15 +11,16 @@
 
 ## Todos
 - Landing Page
+- Lista de Proyectos
 - PocketHost Envars
 - Combinar [Reader] y [Books]
 - Reader component 
 - Catalog
 - BookCard
-- Lista de Proyectos
 - Crear un BrandKit
 - CSS General de la pagina
-
+- Footer
+- Subir blog posts
 
 ---
 # Astro Starter Kit: Basics
