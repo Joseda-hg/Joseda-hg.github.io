@@ -5,49 +5,57 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="Personal Site">
   <main>
-    <form action="https://formbold.com/s/3Gjv9" method="POST">
-      <div class="form-group">
-        <label for="exampleInputEmail1">Direccion de correo electronico</label>
+    <div class="center container p-4">
+      <h1>Formulario de Contacto</h1>
+      <p>
+        En caso de que necesites contactarme por cualquier motivo, recibire esto
+        de forma directa
+      </p>
+      <form action="https://formbold.com/s/3Gjv9" method="POST">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Direccion de correo electronico</label
+          >
+          <input
+            type="email"
+            name="Correo electronico"
+            class="form-control"
+            id="direccionMail"
+            aria-describedby="emailHelp"
+            placeholder="Correo Electronico"
+            required={true}
+          />
+        </div>
+
+        <label for="exampleInputEmail1">Nombre</label>
         <input
-          type="email"
-          name="Correo electronico"
+          type="text"
           class="form-control"
-          id="direccionMail"
+          id="Nombre"
           aria-describedby="emailHelp"
-          placeholder="Correo Electronico"
+          placeholder="Nombre"
           required={true}
+          name="Nombre"
         />
-      </div>
-    </form>
+        <label for="exampleInputEmail1">Mensaje</label>
+        <br />
+        <textarea
+          id="mensaje"
+          class="form-control"
+          aria-describedby="emailHelp"
+          placeholder="Escribe tu mensaje aqui..."
+          required={true}
+          name="Mensaje"></textarea>
 
-    <label for="exampleInputEmail1">Nombre</label>
-    <input
-      type="text"
-      class="form-control"
-      id="Nombre"
-      aria-describedby="emailHelp"
-      placeholder="Nombre"
-      required={true}
-      name="Nombre"
-    />
-    <label for="exampleInputEmail1">Mensaje</label>
-    <br />
-    <textarea
-      id="mensaje"
-      class="form-control"
-      aria-describedby="emailHelp"
-      placeholder="Escribe tu mensaje aqui..."
-      required={true}
-      name="Mensaje"></textarea>
-
-    <br />
-    <button
-      type="submit"
-      class="btn btn-primary btn-block"
-      id="formButton"
-      value={"Enviar"}
-    >
-      Enviar formulario</button
-    >
+        <br />
+        <button
+          type="submit"
+          class="btn btn-primary btn-block"
+          id="formButton"
+          value={"Enviar"}
+        >
+          Enviar formulario</button
+        >
+      </form>
+    </div>
   </main>
 </Layout>
