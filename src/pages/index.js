@@ -11,3 +11,5 @@ async function Eliminar() {
       .collection("Ideas")
       .update(`${lastItem}`, data);
   }
+
+

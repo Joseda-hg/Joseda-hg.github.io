@@ -4,14 +4,13 @@ export const prerender = false;
 import Layout from "../../layouts/Layout.astro";
 const { id } = Astro.params;
 import PocketBase from "pocketbase";
-const pb = new PocketBase('https://thundering-banana.pockethost.io');
+const pb = new PocketBase("https://thundering-banana.pockethost.io");
 const record = await pb.collection("Ideas").getOne(`${[id]}`, {});
 import "../index.js";
 ---
 
 <Layout title="Personal site">
   <main>
-    
     <h1>{record.titulo}</h1>
     <textarea id="area"></textarea>
     <script>
@@ -20,7 +19,7 @@ import "../index.js";
       import PocketBase from "pocketbase";
       import EasyMDE from "easymde";
 
-      const pb = new PocketBase('https://thundering-banana.pockethost.io');
+      const pb = new PocketBase("https://thundering-banana.pockethost.io");
       const [lastItem] = window.location.href.split("/").slice(-1);
 
       const record = await pb.collection("Ideas").getOne(`${lastItem}`, {});
@@ -33,6 +32,14 @@ import "../index.js";
         await pb.collection("Ideas").delete(`${lastItem}`);
       }
 
+      async function ChatGPTBlog() {
+        const record = await pb.collection("Ideas").getOne(`${lastItem}`, {});
+        const textToCopy =
+          "Necesito que generes el texto de un blog de 1000 palabras con la siguiente idea:" +
+          record.blog;
+        window.navigator.clipboard.writeText(textToCopy);
+        location.replace("https://chat.openai.com/");
+      }
       async function Guardar() {
         const data = {
           blog: easyMDE.value(),
@@ -43,12 +50,6 @@ import "../index.js";
           .update(`${lastItem}`, data);
       }
 
-      async function ChatGPTBlog() {
-        const record = await pb.collection("Ideas").getOne(`${lastItem}`, {});
-        const textToCopy = "Necesito que generes el texto de un blog de 1000 palabras con la siguiente idea:" + record.blog ;
-        window.navigator.clipboard.writeText(textToCopy);
-        location.replace("https://chat.openai.com/");
-      }
       document
         .getElementById("btnGuardar")
         .addEventListener("click", function () {
@@ -71,7 +72,8 @@ import "../index.js";
 
       document.getElementById("i").addEventListener("click", function () {
         const textToCopy = "If I Change This";
-        location.replace(`https://twitter.com/intent/tweet?text=${textToCopy}`);      });
+        location.replace(`https://twitter.com/intent/tweet?text=${textToCopy}`);
+      });
     </script>
 
     <button id="btnGuardar" class="btn btn-primary">Actualizar</button>
@@ -79,7 +81,7 @@ import "../index.js";
     <button id="a" class="btn btn-warning">Generar Blog Post</button>
     <button id="b" class="btn btn-warning">Generar un Script</button>
     <button id="i" class="btn btn-success">Twitter Intent</button>
-    <button id="i" class="btn btn-success">Twitter Intent</button>
+
 
     <p>{record.video}</p>
   </main>

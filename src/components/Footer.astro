@@ -1,11 +1,86 @@
 <div>
-    <ul>
-        <a>Twitter</a>
-        <a>Instagram</a>
-        <a>YouTube</a>
-    </ul>
-
-    <p>
-        Copyright © Monocolor. All Rights reserved
-    </p>
+  <script
+    src="https://kit.fontawesome.com/025f2cd8d0.js"
+    crossorigin="anonymous"></script>
+  <footer>
+    <div id="socialmedia">
+      <a href="https://twitter.com/JoseDH29" class="fa fa-twitter"> </a>
+      <a href="https://www.instagram.com/joseda.hg/" class="fa fa-instagram">
+      </a>
+      <a
+        href="https://www.youtube.com/channel/UChMlKA_6f2mNJRRbB7RXzkw"
+        class="fa fa-youtube"
+      >
+      </a>
+    </div>
+    <div id="Copyright">
+      <p id="Copytext">Copyright © Mercurial Design. All Rights reserved</p>
+    </div>
+  </footer>
 </div>
+
+<style>
+  footer {
+    background: #ff01f6;
+    background: -webkit-linear-gradient(right, #ff01f6, #0e79da);
+    color: rgb(233, 233, 233);
+    text-align: center;
+  }
+
+  /* Style all font awesome icons */
+
+  .fa {
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+  }
+
+  /* Add a hover effect if you want */
+  .fa:hover {
+    opacity: 0.8;
+    color: white;
+    text-decoration: none;
+  }
+
+  /* Set a specific color for each brand */
+  .fa-facebook {
+    background: #3b5998;
+    color: white;
+  }
+
+  .fa-twitter {
+    background: #55acee;
+    color: white;
+  }
+
+  .fa-instagram {
+    background: #e6408d;
+    color: white;
+  }
+
+  .fa-youtube {
+    background: #ff0000;
+    color: white;
+  }
+
+  .fa-envelope {
+    background: skyblue;
+    color: white;
+  }
+
+  #socialmedia {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 5%;
+    padding-bottom: 5%;
+  }
+
+  #Copyright {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 5%;
+    align-self: center;
+  }
+</style>
