@@ -6,6 +6,9 @@
 - LinkTree
 - Playground para otras idas
 
+## Done
+- [x] Pagina de Contacto
+
 ## Todos
 - Landing Page
 - PocketHost Envars
