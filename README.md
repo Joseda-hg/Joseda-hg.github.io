@@ -19,6 +19,12 @@
 - Lista de Proyectos
 - Crear un BrandKit
 - CSS General de la pagina
+- Eliminar la otra pagina
+- Agregar un sobre mi
+- Generacion de imagenes para los proyectos
+- Web Customizable TypeRacer
+- DevUtils
+- Quotes https://gwn.wtf/wisdom.html
 
 
 ---
