@@ -11,12 +11,12 @@
 
 ## Todos
 - Landing Page
+- Lista de Proyectos
 - PocketHost Envars
 - Combinar [Reader] y [Books]
 - Reader component 
 - Catalog
 - BookCard
-- Lista de Proyectos
 - Crear un BrandKit
 - CSS General de la pagina
 - Eliminar la otra pagina
@@ -26,6 +26,8 @@
 - DevUtils
 - Quotes https://gwn.wtf/wisdom.html
 
+- Footer
+- Subir blog posts
 
 ---
 # Astro Starter Kit: Basics
